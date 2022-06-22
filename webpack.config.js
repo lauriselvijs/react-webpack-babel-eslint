@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -68,6 +69,9 @@ module.exports = {
     }),
     new WebpackAssetsManifest({
       output: "asset-manifest.json",
+    }),
+    new ESLintPlugin({
+      extensions: ["js", "jsx"],
     }),
   ],
 };
